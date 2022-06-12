@@ -1,0 +1,40 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "Home";
+    Layout = "~/Views/Layouts/DefaultLayout.cshtml";
+}
+
+<div  class=" table-bordered mt-4">
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Birth Date</th>
+            <th>Gender</th>
+            <th>Contact Number</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+    
+        @foreach(Employee elm in ViewBag.employees)
+        {
+            <tr>
+                <td>@elm.Id</td>
+                <td>@elm.Name</td>
+                <td>@elm.Surname</td>
+                <td>@elm.BirthDate</td>
+                <td>@elm.Gender</td>
+                <td>@elm.ContactNumber</td>
+                <td>@elm.Email</td>
+                <td class="btn btn-info">
+                    <a asp-controller="Employee" asp-action="Edit" asp-route-id="@elm.Id">Edit</a>
+                </td>
+                <td class="btn btn-dark">
+                    <a asp-controller="Employee" asp-action="Delete" asp-route-id="@elm.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+

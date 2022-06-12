@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewData["Title"] = "All";
+    Layout = "~/Views/Layouts/DefaultLayout.cshtml";
+}
+
+<div style="font-size:25px">Payroll</div>
+<div class="table-bordered mt-4">
+    <table class="table">
+        <tr>
+            <th>Social Security Number</th>
+            <th>Employee Id</th>
+            <th>Salary</th>
+            <th></th>
+        </tr>
+        @foreach(HRDataget elm in ViewBag.hrdata)
+        {
+            <tr>
+                <td>@elm.SocialSecurityNumber</td>
+                <td>@elm.EmployeeId</td>
+                <td>@elm.Salary</td>
+                <td class="btn btn-info">
+                    <a  asp-controller="HRData" asp-action="Edit" asp-route-id="@elm.Id">Edit</a>
+                </td>
+                <td class="btn btn-dark">
+                    <a  asp-controller="HRData" asp-action="Delete" asp-route-id="@elm.Id">Delete</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+    
+       
+    

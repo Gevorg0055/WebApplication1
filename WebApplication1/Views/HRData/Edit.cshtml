@@ -1,0 +1,32 @@
+﻿@model HRDataget
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/Layouts/DefaultLayout.cshtml";
+}
+
+<form method="post" action="/HRData/edit">
+    
+    <div>
+        <label>Social Security Number</label>
+        <input type="text" class="input-group-text" name="SocialSecurityNumber">
+        <span style="color:red" asp-validation-for="SocialSecurityNumber"></span>
+    </div>
+    
+
+    <div>
+        <label>Employee ID</label>
+        <input type="text" class="input-group-text" name="EmployeeId">
+        <span style="color:red" asp-validation-for="EmployeeId"></span>
+    </div>
+
+
+    <div>
+        <label>Salary</label>
+        <input type="text" class="input-group-text" name="Salary">
+        <span style="color:red" asp-validation-for="Salary"></span>
+
+    </div>
+
+    <button class="btn btn-outline-success  mt-3">Update</button>
+</form>
+
